@@ -4,7 +4,7 @@ from .models import User
 
 
 class CompanyRegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(max_length=10, write_only=True)
+    password = serializers.CharField(max_length=6, write_only=True)
     class Meta:
         model = User
         fields = ['email', 'name','password']
@@ -17,3 +17,12 @@ class CompanyRegisterSerializer(serializers.ModelSerializer):
             raise ValidationError('Email is already taken')
             
         return super().validate(attrs)
+
+    def create(self, validated_data):
+
+        password = validated_data.pop("password")
+        user = super().create(validated_data)  
+        user.set_password(password)
+        user.save()
+
+        return  user
