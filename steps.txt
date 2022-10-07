@@ -1,0 +1,46 @@
+problem definition
+-route for all advocates 
+-route for single advocate with -details and company
+-delete
+-update
+
+-route for all companies 
+-route for single company with -details and advocates from the company
+-delete
+-update
+    -Companies create an account
+        -name
+        -logo
+        -summary
+        -advocates
+
+    -Advocates create an account
+        -name
+        -profile_pic
+        -short_bio
+        -long_bio
+        -advocate_years_exp
+        -company
+        -links
+how am going to work through my projblem solution
+-create a custom user model
+    -name
+    -email
+    -user_type -advocate
+               -company
+-create advocate model  
+    -user-ForeignKey
+    -profile_pic
+    -short_bio
+    -long_bio
+    -advocate_years_exp
+    -company-ForeignKey           
+
+-create company model  
+    -user-ForeignKey
+    -name
+    -logo
+    -summary
+
+- in serializer return company with associated advocates
+- in serializers return user with respective company details         
