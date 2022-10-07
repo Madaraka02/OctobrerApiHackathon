@@ -14,3 +14,13 @@ class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyProfile
         fields = ['id','name','logo','summary']        
+
+
+class CompanyUrlSerializer(serializers.HyperlinkedModelSerializer):
+    name = serializers.CharField(source='user.name')
+    # href = serializers.HyperlinkedIdentityField()
+    class Meta:
+        model = CompanyProfile
+        fields = ['id','name','logo']  
+
+        URL_FIELD_NAME = 'href'              

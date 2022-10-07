@@ -19,8 +19,19 @@ class Profile(models.Model):
     twitter = models.URLField(null=True,blank=False)
     github = models.URLField(null=True,blank=False)
 
+
+    @property
+    def links(self):
+        links={
+            'youtube': self.youtube,
+            'twitter': self.twitter,
+            'github': self.github
+        }
+        return links
+
     def __str__(self):
         return self.user.name
+
 
     @receiver(post_save, sender=User)
     def create_advocate_profile(sender, instance, created, **kwargs):
