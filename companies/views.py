@@ -9,6 +9,16 @@ class CompanyList(generics.ListCreateAPIView):
     serializer_class = CompanySerializer
 
 
-class CompanyDetail(generics.RetrieveUpdateDestroyAPIView):
+class CompanyDetail(generics.RetrieveAPIView):
+    lookup_field = "id"
     queryset = CompanyProfile.objects.all()
-    serializer_class = CompanySerializer
+    serializer_class = CompanyDetailsSerializer
+ 
+class CompanyUpdateView(generics.RetrieveUpdateAPIView):
+    lookup_field = "id"
+    queryset = CompanyProfile.objects.all()
+    serializer_class = CompanyDetailsSerializer       
+
+class CompanyDestroyView(generics.DestroyAPIView):
+    queryset = CompanyProfile.objects.all()
+    serializer_class = CompanyDetailsSerializer     
