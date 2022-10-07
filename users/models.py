@@ -48,7 +48,10 @@ class CustomUserManager(BaseUserManager):
         return user
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255,unique=True)
-    name = models.CharField()(max_length=255,unique=True)
+    name = models.CharField(max_length=255,unique=True)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False) # a admin user; non super-user
+    is_superuser = models.BooleanField(default=False) # a superuser
     is_company = models.BooleanField(default=False)
     is_advocate = models.BooleanField(default=False)
 
@@ -60,3 +63,15 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return f'{self.email}'
+
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    def has_module_perms(self, app_label):
+        "Does the user have permissions to view the app `app_label`?"
+        # Simplest possible answer: Yes, always
+        return True
+
+  

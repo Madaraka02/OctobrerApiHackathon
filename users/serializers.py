@@ -3,8 +3,8 @@ from rest_framework.validators import ValidationError
 from .models import User
 
 
-class CompanyRegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(max_length=6, write_only=True)
+class RegisterSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(max_length=10, write_only=True)
     class Meta:
         model = User
         fields = ['email', 'name','password']

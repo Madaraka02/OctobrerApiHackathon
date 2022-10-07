@@ -6,16 +6,13 @@ from rest_framework.response import Response
 
 # Create your views here.
 class CompanyRegisterView(generics.GenericAPIView):
-    serializer_class = CompanyRegisterSerializer
+    serializer_class = RegisterSerializer
 
     def post(self, request:Request):
         data = request.data
         serializer = self.serializer_class(data=data)
         if serializer.is_valid():
-            usser = serializer.save(commit=False)
-            usser.is_company = True
-            usser.save()
-
+            serializer.save(is_company = True)
             response = {
                 "message":"Created succcessfully",
                 "data":serializer.data
@@ -26,4 +23,19 @@ class CompanyRegisterView(generics.GenericAPIView):
         return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
 
+class AdvocateRegisterView(generics.GenericAPIView):
+    serializer_class = RegisterSerializer
 
+    def post(self, request:Request):
+        data = request.data
+        serializer = self.serializer_class(data=data)
+        if serializer.is_valid():
+            serializer.save(is_advocate = True)
+            response = {
+                "message":"Created succcessfully",
+                "data":serializer.data
+            }
+
+            return Response(data=response, status=status.HTTP_201_CREATED)
+
+        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)    

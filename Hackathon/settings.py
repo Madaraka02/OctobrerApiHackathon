@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'advocates',
     'companies',
+    'users',
 
     'rest_framework',
 ]
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 ROOT_URLCONF = 'Hackathon.urls'
 
