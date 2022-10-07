@@ -10,11 +10,11 @@ from django.dispatch import receiver
 # Create your models here.
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    profile_pic = models.URLField(blank=True)
+    profile_pic = models.FileField(upload_to='advocates/images', null=True, blank=True)
     short_bio = models.CharField(max_length=300,blank=True)
     long_bio = models.TextField(blank=True)
     advocate_years_exp = models.PositiveIntegerField(default=1)
-    company = models.ForeignKey(CompanyProfile, on_delete=models.SET_NULL, null=True)
+    company = models.ForeignKey(CompanyProfile, related_name='advocates', on_delete=models.SET_NULL, null=True)
     youtube = models.URLField(null=True,blank=False)
     twitter = models.URLField(null=True,blank=False)
     github = models.URLField(null=True,blank=False)

@@ -10,7 +10,7 @@ from django.dispatch import receiver
 
 class CompanyProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    logo = models.URLField(blank=True)
+    logo = models.FileField(upload_to='companies/images', null=True, blank=True)
     summary = models.TextField(blank=True)
 
     def __str__(self):
