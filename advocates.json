@@ -1,0 +1,19 @@
+{
+    "id":1,
+    "name":"Dennis Ivy",
+    "profile_pic":"/user_pic.png",
+    "short_bio":"...",
+    "long_bio":"...",
+    "advocate_years_exp":1,
+    "company":{
+        "id":6,
+        "name":"Agora",
+        "logo":"agora_logo.png",
+        "href":"/companies/6",
+    },
+    "links":{
+        "youtube":"youtube.com/username",
+        "twitter":"twitter.com/username",
+        "github":"github.com/username",
+    }
+}
