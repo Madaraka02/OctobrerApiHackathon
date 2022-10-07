@@ -25,7 +25,19 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Developer Advocate API",
         default_version='v1',
-        description="Welcome to the Developer Advocate API submission",
+        description="""Welcome to the Developer Advocate API submission:
+        
+        I solved my problem by creating a custom user model with name, email, is_company and is_advocate fields.
+        I have created a route for registering a company and an advocate which then sets the is_company and is_advocate respectively.After either a 
+        company of an advocate User is created,
+        a respective profile model is created using django post_save signal. The profile model for an advocate user has all field which were defined for 
+        an advocate and the company Profile model has the fields defined for a company in the challenge description.
+        
+        WHY I USED THIS METHOD:
+        Because this Api will be consumed by a frontend application my idea was that on the frontend there will be a registration screen
+        which asks a user whether they want to signup as a company or advocate. Then after successfull registration, the user will be redirected
+        to an account page where they will update their already created Profile model and add all the required information.
+        """,
         contact=openapi.Contact(email="victormadaraka@gmail.com"),
     ),
     public=True,
