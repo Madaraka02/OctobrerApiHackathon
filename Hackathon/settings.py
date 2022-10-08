@@ -11,11 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import environ
+from dotenv import load_dotenv
+import os #provides ways to access the Operating System and allows us to read the environment variables
 
-env = environ.Env()
-environ.Env.read_env()
-
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY", default="unsafe-secret-key")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -112,11 +111,11 @@ WSGI_APPLICATION = 'Hackathon.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env("PGDATABASE"),
-        'USER':env("PGUSER"),
-        'PASSWORD':env("PGPASSWORD", default="unsafe-secret-key"),
-        'HOST':env("PGHOST"),
-        'PORT':env("PGPORT"),
+        'NAME': os.getenv("PGDATABASE", default="unsafe-secret-key"),
+        'USER':os.getenv("PGUSER", default="unsafe-secret-key"),
+        'PASSWORD':os.getenv("PGPASSWORD", default="unsafe-secret-key"),
+        'HOST':os.getenv("PGHOST", default="unsafe-secret-key"),
+        'PORT':os.getenv("PGPORT"),
     }
 }
 
@@ -175,9 +174,9 @@ AWS_S3_FILE_OVERWRITE=False
 AWS_DEFAULT_ACL=None 
 AWS_QUERYSTRING_AUTH=False
 
-AWS_ACCESS_KEY_ID=env("AWS_ACCESS_KEY_ID", default="unsafe-secret-key")
-AWS_SECRET_ACCESS_KEY=env("AWS_SECRET_ACCESS_KEY", default="unsafe-secret-key")
-AWS_STORAGE_BUCKET_NAME=env("AWS_STORAGE_BUCKET_NAME")
+AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME=os.getenv("AWS_STORAGE_BUCKET_NAME")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
