@@ -162,7 +162,13 @@ STATICFILES_DIRS =[
 ]
 MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+SWAGGER_SETTINGS = {
+   'USE_SESSION_AUTH': False
+}
 
+CSRF_TRUSTED_ORIGINS =[
+    'https://web-production-426d.up.railway.app'
+]
 
 CORS_ALLOW_ALL_ORIGINS=True
 
