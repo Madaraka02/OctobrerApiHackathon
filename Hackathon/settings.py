@@ -109,16 +109,16 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#         'USER':'',
-#         'PASSWORD':'',
-#         'HOST':'',
-#         'PORT':'',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env("PGDATABASE"),
+        'USER':env("PGUSER"),
+        'PASSWORD':env("PGPASSWORD", default="unsafe-secret-key"),
+        'HOST':env("PGHOST"),
+        'PORT':env("PGPORT"),
+    }
+}
 
 
 # Password validation
