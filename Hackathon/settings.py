@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'drf_yasg',
     'corsheaders',
+    'storages',
 
 ]
 
@@ -166,7 +167,17 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 CORS_ALLOW_ALL_ORIGINS=True
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# S3 CONFIG
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_FILE_OVERWRITE=False
+AWS_DEFAULT_ACL=None 
+AWS_QUERYSTRING_AUTH=False
+
+AWS_ACCESS_KEY_ID=env("AWS_ACCESS_KEY_ID", default="unsafe-secret-key")
+AWS_SECRET_ACCESS_KEY=env("AWS_SECRET_ACCESS_KEY", default="unsafe-secret-key")
+AWS_STORAGE_BUCKET_NAME=env("AWS_STORAGE_BUCKET_NAME")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
