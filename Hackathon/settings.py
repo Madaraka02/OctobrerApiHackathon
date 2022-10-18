@@ -163,23 +163,23 @@ SWAGGER_SETTINGS = {
    'USE_SESSION_AUTH': False
 }
 
-# CSRF_TRUSTED_ORIGINS =[
-#     'https://web-production-426d.up.railway.app'
-# ]
+CSRF_TRUSTED_ORIGINS =[
+    'https://web-production-426d.up.railway.app'
+]
 
-# CORS_ALLOW_ALL_ORIGINS=True
+CORS_ALLOW_ALL_ORIGINS=True
 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 # S3 CONFIG
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# AWS_S3_FILE_OVERWRITE=False
-# AWS_DEFAULT_ACL=None 
-# AWS_QUERYSTRING_AUTH=False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_FILE_OVERWRITE=False
+AWS_DEFAULT_ACL=None 
+AWS_QUERYSTRING_AUTH=False
 
-# AWS_ACCESS_KEY_ID='AKIAYGNUQAKNEI2YGFGL'
-# AWS_SECRET_ACCESS_KEY='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'
-# AWS_STORAGE_BUCKET_NAME='october-api-hackathon'
+AWS_ACCESS_KEY_ID='AKIAYGNUQAKNEI2YGFGL'
+AWS_SECRET_ACCESS_KEY='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'
+AWS_STORAGE_BUCKET_NAME='october-api-hackathon'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
