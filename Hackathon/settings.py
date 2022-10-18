@@ -86,13 +86,10 @@ TEMPLATES = [
 ]
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
     'NON_FIELD_ERRORS_KEY':'errors',
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' 
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    # ]
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' ,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2,
 }
 
 WSGI_APPLICATION = 'Hackathon.wsgi.application'
@@ -101,23 +98,23 @@ WSGI_APPLICATION = 'Hackathon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER':'postgres',
-        'PASSWORD':'daiyaWUb39RyUB4O1Z1g',
-        'HOST':'containers-us-west-99.railway.app',
-        'PORT':5909,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER':'postgres',
+#         'PASSWORD':'daiyaWUb39RyUB4O1Z1g',
+#         'HOST':'containers-us-west-99.railway.app',
+#         'PORT':5909,
+#     }
+# }
 
 
 # Password validation
@@ -166,23 +163,23 @@ SWAGGER_SETTINGS = {
    'USE_SESSION_AUTH': False
 }
 
-CSRF_TRUSTED_ORIGINS =[
-    'https://web-production-426d.up.railway.app'
-]
+# CSRF_TRUSTED_ORIGINS =[
+#     'https://web-production-426d.up.railway.app'
+# ]
 
-CORS_ALLOW_ALL_ORIGINS=True
+# CORS_ALLOW_ALL_ORIGINS=True
 
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 # S3 CONFIG
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_FILE_OVERWRITE=False
-AWS_DEFAULT_ACL=None 
-AWS_QUERYSTRING_AUTH=False
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_S3_FILE_OVERWRITE=False
+# AWS_DEFAULT_ACL=None 
+# AWS_QUERYSTRING_AUTH=False
 
-AWS_ACCESS_KEY_ID='AKIAYGNUQAKNEI2YGFGL'
-AWS_SECRET_ACCESS_KEY='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'
-AWS_STORAGE_BUCKET_NAME='october-api-hackathon'
+# AWS_ACCESS_KEY_ID='AKIAYGNUQAKNEI2YGFGL'
+# AWS_SECRET_ACCESS_KEY='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'
+# AWS_STORAGE_BUCKET_NAME='october-api-hackathon'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
