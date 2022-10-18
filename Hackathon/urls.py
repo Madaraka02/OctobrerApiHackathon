@@ -28,7 +28,7 @@ schema_view = get_schema_view(
         description="""Welcome to the Developer Advocate API submission:
         
         I solved my problem by creating a custom user model with name, email, is_company and is_advocate fields.
-        I have created a route for registering a company and an advocate which then sets the is_company and is_advocate respectively.After either a 
+        I have created a route for registering a company and an advocate which then sets the is_company and is_advocate to true accordingly.After either a 
         company of an advocate User is created,
         a respective profile model is created using django post_save signal. The profile model for an advocate user has all field which were defined for 
         an advocate and the company Profile model has the fields defined for a company in the challenge description.
