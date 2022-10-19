@@ -25,5 +25,6 @@ class CompanyUpdateView(generics.RetrieveUpdateAPIView):
     serializer_class = CompanySerializer       
 
 class CompanyDestroyView(generics.DestroyAPIView):
+    lookup_field = "id"
     queryset = CompanyProfile.objects.all()
     serializer_class = CompanyDetailsSerializer     
