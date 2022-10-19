@@ -27,6 +27,8 @@ schema_view = get_schema_view(
         default_version='v1',
         description="""Welcome to the Developer Advocate API submission:
         
+        PITCH:
+
         I solved my problem by creating a custom user model with name, email, is_company and is_advocate fields.
         I have created a route for registering a company and an advocate which then sets the is_company and is_advocate to true accordingly.After either a 
         company of an advocate User is created,
@@ -34,9 +36,18 @@ schema_view = get_schema_view(
         an advocate and the company Profile model has the fields defined for a company in the challenge description.
         
         WHY I USED THIS METHOD:
+
         Because this Api will be consumed by a frontend application my idea was that on the frontend there will be a registration screen
         which asks a user whether they want to signup as a company or advocate. Then after successfull registration, the user will be redirected
         to an account page where they will update their already created Profile model and add all the required information.
+
+        HOW TO CONSUME THIS API:
+
+        register a company `/auth/company/register` this will create a company user and also a Companyprofile.
+        register an advocate `/auth/advocate/register` this will create an advocate user and also an Advocateprofile.
+        update the created company `/companies/{id}/update` to add logo and summary which will be updated in the Companyprofile created above in company register.
+        update the created advocate `/advocates/{id}/update` to add profile_pic, short_bio, long_bio,years_of_exp,company and links will be updated in the Advocateprofile 
+        created during advocate register.
         """,
         contact=openapi.Contact(email="victormadaraka@gmail.com"),
     ),
