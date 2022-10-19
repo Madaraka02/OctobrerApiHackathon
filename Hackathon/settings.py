@@ -164,7 +164,7 @@ SWAGGER_SETTINGS = {
 }
 
 CSRF_TRUSTED_ORIGINS =[
-    'https://vm-advocates-api.up.railway.app/'
+    'https://vm-advocates-api.up.railway.app'
 ]
 
 CORS_ALLOW_ALL_ORIGINS=True
