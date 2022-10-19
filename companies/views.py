@@ -22,7 +22,7 @@ class CompanyDetail(generics.RetrieveAPIView):
 class CompanyUpdateView(generics.RetrieveUpdateAPIView):
     lookup_field = "id"
     queryset = CompanyProfile.objects.all()
-    serializer_class = CompanyDetailsSerializer       
+    serializer_class = CompanySerializer       
 
 class CompanyDestroyView(generics.DestroyAPIView):
     queryset = CompanyProfile.objects.all()

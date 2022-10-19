@@ -24,7 +24,7 @@ class AdvocateDetail(generics.RetrieveAPIView):
 class AdvocateUpdateView(generics.RetrieveUpdateAPIView):
     lookup_field = "id"
     queryset = Profile.objects.all()
-    serializer_class = AdvocateSerializer       
+    serializer_class = AdvocateEditSerializer       
 
 class AdvocateDestroyView(generics.DestroyAPIView):
     queryset = Profile.objects.all()
